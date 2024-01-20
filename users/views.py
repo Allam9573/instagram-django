@@ -1,7 +1,7 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 
 # Create your views here.
 
 
 def lista_usuarios(request):
-    return HttpResponse(f'Lista usuarios')
+    return render(request, 'users.html')
