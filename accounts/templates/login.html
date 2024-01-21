@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% load static %}
+  <div class="row mb-5">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div class="mt-5 d-flex justify-content-evenly">
+        <div class="">
+          <img src="{% static 'images/phone_sign.png' %}" alt="" />
+        </div>
+        <div class="my-auto">
+          <div style="width: 23rem;" class="rounded-0 card mb-4 text-center px-5">
+            <img src="{% static 'images/logo.png' %}" class="mx-auto my-4" width="150" alt="" />
+            <form action="">
+              <input type="text" name="" placeholder="Phone number, username, or email" id="" class="mb-3 form-control" />
+              <input type="text" name="" placeholder="Password" id="" class="mb-3 form-control" />
+              <input type="submit" value="Log in" class="mb-3 w-100 btn btn-primary" />
+            </form>
+            <p>or</p>
+            <p>Log in with Facebook</p>
+            <small class="mb-3">Forgot password?</small>
+          </div>
+          <div class="card rounded-0 text-center py-3">
+            <p class="my-auto">
+              Dont have an account <a href="">Sign up</a>
+            </p>
+          </div>
+          <div class="text-center mt-4">
+            <p>Get the app</p>
+            <div>
+              <img width="150" src="{% static 'images/appstore.png' %}" alt="" />
+              <img width="150" src="{% static 'images/googleplay.png' %}" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3"></div>
+  </div>
+  <div class="text-center mt-5">
+    <div>
+      <a class="mx-1 text-secondary" href="">Meta</a>
+      <a class="mx-1 text-secondary" href="">About</a>
+      <a class="mx-1 text-secondary" href="">Blog</a>
+      <a class="mx-1 text-secondary" href="">Jobs</a>
+      <a class="mx-1 text-secondary" href="">Help</a>
+      <a class="mx-1 text-secondary" href="">API</a>
+      <a class="mx-1 text-secondary" href="">Privacy</a>
+      <a class="mx-1 text-secondary" href="">Cookie Setting</a>
+      <a class="mx-1 text-secondary" href="">Terms</a>
+      <a class="mx-1 text-secondary" href="">Locations</a>
+      <a class="mx-1 text-secondary" href="">Instagram Lite</a>
+      <a class="mx-1 text-secondary" href="">Threads</a>
+      <a class="mx-1 text-secondary" href="">Contact Uploading & Non-Users</a>
+      <a class="mx-1 text-secondary" href="">Meta Verified</a>
+    </div>
+    <div class="mt-4">
+      <a class="text-secondary" href="">English</a>
+      <p class="text-secondary">@2024 Instagram from Meta</p>
+    </div>
+  </div>
+{% endblock %}
