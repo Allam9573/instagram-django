@@ -12,11 +12,9 @@ from .models import Post
 
 def post_id(request, id):
     try:
-        post = Post.objects.get(pk=id)
-        comments = post.comments.all()
+        posts = Post.objects.get(pk=id)
         return render(request, 'posts.html', {
-            'posts': post,
-            'comments': comments
+            'posts': posts,
         })
     except:
         return render(request, 'posts.html')

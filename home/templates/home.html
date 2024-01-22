@@ -6,23 +6,33 @@
   <div class="row mt-5">
     <div class="col-3"></div>
     <div class="col-6">
-      <div class="card rounded-0">
-        <div class="card-header bg-body d-flex justify-content-between align-items-center">
-          <div class="left d-flex">
-            <img src="{% static 'images/profile.jpg' %}" class="rounded-circle me-2" width="50" alt="" />
-            <p class="my-auto h6 me-1">allamcode</p>
-            <p class="my-auto text-secondary me-1">1 week</p>
-            <p class="my-auto h6 text-primary">Follow</p>
-          </div>
-          <a href=""><img src="{% static 'images/icons/more.png' %}" width="20" alt="" /></a>
-        </div>
-        <div class="card-body text-center">
-            <img src="{% static 'images/taza.png' %}" class="w-75" alt="">
-            <div>
-                cwe
+      {% for post in posts %}
+        <div class="card rounded-0 my-5">
+          <div class="card-header bg-body d-flex justify-content-between align-items-center">
+            <div class="left d-flex">
+              <img src="{% static 'images/profile.jpg' %}" class="rounded-circle me-2" width="50" alt="" />
+              <p class="my-auto h6 me-1">{{ post.user }}</p>
+              <p class="my-auto text-secondary me-1">1 week</p>
+              <p class="my-auto h6 text-primary">Follow</p>
             </div>
+            <a href=""><img src="{% static 'images/icons/more.png' %}" width="20" alt="" /></a>
+          </div>
+          <div class="card-body text-center">
+            <img src="{{ post.image.url }}" class="w-75" alt="" />
+            <div class="d-flex mt-3 justify-content-between mx-4">
+              <div>
+                <a href=""><img class="me-3" src="{% static 'images/icons/heart.png' %}" width="30" alt="" /></a>
+                <a href=""><img class="me-3" src="{% static 'images/icons/comments.png' %}" width="30" alt="" /></a>
+                <a href=""><img class="me-3" src="{% static 'images/icons/send.png' %}" width="30" alt="" /></a>
+                <a href=""></a>
+                <a href=""></a>
+              </div>
+              <a href=""><img src="{% static 'images/icons/favorites.png' %}" width="30" alt="" /></a>
+            </div>
+            <p class="text-start ms-4 mt-3">{{ post.likes }} likes</p>
+          </div>
         </div>
-      </div>
+      {% endfor %}
     </div>
     <div class="col-3"></div>
   </div>
