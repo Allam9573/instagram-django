@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% block title %}
+
+{{block.super}} | Login
+{% endblock title %}
+
 {% block content %}
   {% load static %}
   <div class="row mb-5">
@@ -12,17 +17,17 @@
           <div style="width: 23rem;" class="rounded-0 shadow-sm card mb-4 text-center px-5">
             <img src="{% static 'images/logo.png' %}" class="mx-auto my-4" width="150" alt="" />
             <form action="">
-              <input type="text" name="" placeholder="Phone number, username, or email" id="" class="mb-3 form-control fst-italic" />
-              <input type="password" name="" placeholder="Password" id="" class="mb-3 form-control" />
+              <input type="text" name="" placeholder="Phone number, username, or email" id="" class="mb-3 form-control rounded-0" />
+              <input type="password" name="" placeholder="Password" id="" class="mb-3 form-control rounded-0" />
               <input type="submit" value="Log in" class="mb-3 w-100 btn btn-primary" />
             </form>
             <p>or</p>
-            <p>Log in with Facebook</p>
-            <small class="mb-3">Forgot password?</small>
+            <a href=""><p class="h6">Log in with Facebook</p></a>
+            <a class="mb-4" href=""><small>Forgot password?</small></a>
           </div>
           <div class="card shadow-sm rounded-0 text-center py-3">
             <p class="my-auto">
-              Dont have an account <a href="{% url "sign" %}">Sign up</a>
+              Dont have an account <a href="{% url 'sign' %}">Sign up</a>
             </p>
           </div>
           <div class="text-center mt-4">

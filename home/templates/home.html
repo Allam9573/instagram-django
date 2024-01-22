@@ -1,5 +1,29 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
-{% include 'includes/navbar.html' %}
-{% endblock content %}
+  {% load static %}
+  {% include 'includes/navbar.html' %}
+  <div class="row mt-5">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div class="card rounded-0">
+        <div class="card-header bg-body d-flex justify-content-between align-items-center">
+          <div class="left d-flex">
+            <img src="{% static 'images/profile.jpg' %}" class="rounded-circle me-2" width="50" alt="" />
+            <p class="my-auto h6 me-1">allamcode</p>
+            <p class="my-auto text-secondary me-1">1 week</p>
+            <p class="my-auto h6 text-primary">Follow</p>
+          </div>
+          <a href=""><img src="{% static 'images/icons/more.png' %}" width="20" alt="" /></a>
+        </div>
+        <div class="card-body text-center">
+            <img src="{% static 'images/taza.png' %}" class="w-75" alt="">
+            <div>
+                cwe
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3"></div>
+  </div>
+{% endblock %}

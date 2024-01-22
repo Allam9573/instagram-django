@@ -1,4 +1,7 @@
 
+# Welcome to Instagram Django project
+
+#### This is a instagram clone version with Django, Bootstrap and MySQL( database engine)
 ## Install virtual environment
 Install virtualenv from Linux
 ```bash
