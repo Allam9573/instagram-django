@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% load static %}
+  <div class="d-flex flex-column align-items-center mt-2">
+    <div class="card shadow-sm rounded-0 px-4" style="width: 23rem;">
+      <img src="{% static 'images/logo.png' %}" class="mx-auto mt-4" width="200" alt="" />
+      <p class="text-secondary px-4 text-center mt-3 fw-bold">Sign up to see photos and videos from your friends.</p>
+      <a href="" class="btn btn-primary mx-4">Log in with Facebook</a>
+      <p class="text-center text-secondary my-2">Or</p>
+      <form action="" class="mx-4">
+        <input type="text" name="" id="" placeholder="Mobile Number or Email" class="my-2 form-control rounded-0" />
+        <input type="text" name="" id="" placeholder="Full Name" class="my-2 form-control rounded-0" />
+        <input type="text" name="" id="" placeholder="Username" class="my-2 form-control rounded-0" />
+        <input type="password" name="" id="" placeholder="Password" class="my-2 form-control rounded-0" />
+        <p class="text-secondary my-3 text-center" style="font-size: 12px;">
+          People who use our service may have uploaded your contact information to Instagram. <a href="">Learn More</a>
+        </p>
+        <p class="text-secondary text-center" style="font-size: 12px;">
+          By signing up, you agree to our <a href="">Terms</a>, <a href="">Privacy Policy</a> and <a href="">Cookies Policy.</a>
+        </p>
+        <input type="submit" class="btn btn-primary w-100 mb-4" value="Sign up" />
+      </form>
+    </div>
+    <div class="card my-3 rounded-0 text-center" style="width: 23rem;">
+      <p class="p-3 my-auto">
+        Have an account? <a href="{% url 'login' %}">Log in</a>
+      </p>
+    </div>
+    <p>Get the app</p>
+    <div>
+      <img width="150" src="{% static 'images/appstore.png' %}" alt="" />
+      <img width="150" src="{% static 'images/googleplay.png' %}" alt="" />
+    </div>
+  </div>
+{% endblock %}
