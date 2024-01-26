@@ -26,6 +26,7 @@ urlpatterns = [
     path('posts/', include('posts.urls')),
     path('users/', include('users.urls')),
     path('accounts/auth/', include('accounts.urls')),
+    path('profile/', include('my_profile.urls'))
 
 ]
 
