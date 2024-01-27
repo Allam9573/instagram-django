@@ -1,6 +1,29 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
-{% include "includes/navbar.html" %}
-    
-{% endblock content %}
+{% load static %}
+  {% include 'includes/navbar.html' %}
+  <div class="d-flex justify-content-center mt-5">
+    <div>
+        <img src="{% static 'images/profile.jpg' %}" class="rounded-circle" alt="">
+    </div>
+    <div>
+        <div class="row ms-5">
+           <div class="col-12 d-flex">
+            <p class="my-auto me-2 fw-medium fs-5">{{user.username}}</p>
+            <a class="btn btn-primary my-auto mx-2" href="">Edit Profile</a>
+            <a class="btn btn-primary my-auto mx-2" href="">View Archive</a>
+            <a href=""><img src="{% static 'images/icons/setting.png' %}" class="my-auto" width="30" alt=""></a>
+           </div>
+        </div>
+        <div class="row ms-5 my-4">
+            <div class="col-3">posts</div>
+            <div class="col-3">followers</div>
+            <div class="col-3">following</div>
+        </div>
+        <div class="row ms-5 my-4">
+            <div class="col-4 fw-bold fs-6">{{user.fullname}}</div>
+        </div>
+    </div>
+  </div>
+{% endblock %}

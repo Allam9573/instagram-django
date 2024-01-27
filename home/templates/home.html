@@ -29,7 +29,12 @@
               </div>
               <a href=""><img src="{% static 'images/icons/favorites.png' %}" width="30" alt="" /></a>
             </div>
-            <p class="text-start ms-4 mt-3">{{ post.likes }} likes</p>
+            <div class="d-flex">
+              <p class="text-start ms-4 mt-3 fw-medium">{{ post.user }}</p>
+              <a href="" class="text-start ms-2 mt-3">#{{ post.quote }}</a>
+              <p class="text-start ms-2 mt-3 text-secondary">{{ post.create_at }}</p>
+            </div>
+            <p class="text-start ms-4 fw-medium">{{ post.likes }} likes</p>
           </div>
         </div>
       {% endfor %}

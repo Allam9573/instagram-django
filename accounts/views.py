@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import base_user
-from ..users.models import User
+from django.shortcuts import render, redirect, HttpResponse
+from users.models import User
 
 # Create your views here.
 
@@ -10,7 +9,6 @@ def login_user(request):
 
 
 def sign(request):
-    print(base_user)
     return render(request, 'sign.html')
 
 
@@ -30,4 +28,4 @@ def create_account(request):
             new_user.save()
             return redirect('home')
         except:
-            pass
+            return HttpResponse('Hubo un error al registrar usuario')

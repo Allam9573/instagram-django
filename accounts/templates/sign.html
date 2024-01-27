@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}
-{{block.super}} | Sign
-{% endblock title %}
+  {{ block.super }} | Sign
+{% endblock %}
 {% block content %}
   {% load static %}
   <div class="d-flex flex-column align-items-center mt-2">
@@ -10,7 +10,8 @@
       <p class="text-secondary px-4 text-center mt-3 fw-bold">Sign up to see photos and videos from your friends.</p>
       <a href="" class="btn btn-primary mx-4">Log in with Facebook</a>
       <p class="text-center text-secondary my-2">Or</p>
-      <form action="" class="mx-4">
+      <form action="{% url 'create_account' %}" class="mx-4" method="POST">
+        {% csrf_token %}
         <input type="text" name="email" id="" placeholder="Mobile Number or Email" class="my-2 form-control rounded-0" />
         <input type="text" name="fullname" id="" placeholder="Full Name" class="my-2 form-control rounded-0" />
         <input type="text" name="username" id="" placeholder="Username" class="my-2 form-control rounded-0" />
