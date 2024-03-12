@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'users',
     'accounts',
     'home',
-    'my_profile'
+    'my_profile',
+    'comments'
 ]
 
 MIDDLEWARE = [

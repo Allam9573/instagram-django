@@ -7,18 +7,18 @@
     <div class="col-3"></div>
     <div class="col-6">
       {% for post in posts %}
-        <div class="card rounded-0 my-5">
+        <div class="card w-75 mx-auto rounded-0 mt-5">
           <div class="card-header bg-body d-flex justify-content-between align-items-center">
             <div class="left d-flex">
               <img src="{% static 'images/profile.jpg' %}" class="rounded-circle me-2" width="50" alt="" />
-              <p class="my-auto h6 me-1">{{ post.user }}</p>
+              <p class="my-auto h6 me-1">{{ post.user.username }}</p>
               <p class="my-auto text-secondary me-1">1 week</p>
               <p class="my-auto h6 text-primary">Follow</p>
             </div>
             <a href=""><img src="{% static 'images/icons/more.png' %}" width="20" alt="" /></a>
           </div>
           <div class="card-body text-center">
-            <img src="{{ post.image.url }}" class="img-fluid" alt="" />
+            <img src="{{ post.image.url }}" class="img-fluid" width="300" alt="" />
             <div class="d-flex mt-3 justify-content-between mx-4">
               <div>
                 <a href=""><img class="me-3" src="{% static 'images/icons/heart.png' %}" width="30" alt="" /></a>
@@ -30,15 +30,48 @@
               <a href=""><img src="{% static 'images/icons/favorites.png' %}" width="30" alt="" /></a>
             </div>
             <div class="d-flex">
-              <p class="text-start ms-4 mt-3 fw-medium">{{ post.user }}</p>
-              <a href="" class="text-start ms-2 mt-3">#{{ post.quote }}</a>
-              <p class="text-start ms-2 mt-3 text-secondary">{{ post.create_at }}</p>
+              <p class="text-start ms-4 fw-medium">{{ post.user.username }}</p>
+              <a href="" class="text-start ms-2">#{{ post.quote }}</a>
+              <p class="text-start ms-2 text-secondary">{{ post.create_at }}</p>
             </div>
             <p class="text-start ms-4 fw-medium">{{ post.likes }} likes</p>
           </div>
+          {{ post.user.id }}
+          <div class="text-center mb-4 text-secondary">
+            {% if comments %}
+              <div class="text-center">
+                {% for comment in comments %}
+                  <p></p>
+                  <p>{{ comment.user.username }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              No hay comentarios aun <br />
+            {% endif %}
+
+            <button id="agregarComentarioBtn" class="btn btn-primary btn-sm">Agregar un comentario</button>
+          </div>
+          <div id="agregarComentario"></div>
         </div>
       {% endfor %}
     </div>
     <div class="col-3"></div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script>
+$(document).ready(function() {
+    $('#agregarComentarioBtn').click(function() {
+        var newRow =    '{%for post in posts %}'+
+                        '<form action="{% url 'save_comment' %}" method="POST" class="text-center mb-5" id="agregarComentario">' +
+                        '{% csrf_token %}'+
+                        '<input type="hidden" value="{{post.user.id}}" name="user_id"/>'+
+                        '<h3>{{post.user.id}}</h3>'+
+                        '<textarea name="comment" value="ceec" placeholder="Escribe aqui tu comentario..." class="form-control mb-3 w-75 mx-auto" id="" cols="30" rows="5"></textarea>' +
+                        '<input class="btn btn-primary btn-sm" type="submit" value="Publicar comentario" />' +
+                        '</form>'+
+                        '{%endfor%}';
+        $('#agregarComentario').append(newRow);
+    });
+});
+</script>
 {% endblock %}
